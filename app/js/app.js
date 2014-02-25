@@ -1,16 +1,30 @@
 'use strict';
 
-
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+var dinnerAppModule = angular.module('dinnerPlannerPro', ['ngRoute']);
+
+/*angular.module('dinnerPlannerPro', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  'DinnerModel',
+  'dinnerPlannerPro.MainController',
+  'dinnerPlannerPro.DishController'
+]);*/
+
+dinnerAppModule.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/home', {templateUrl: 'partials/start-screen.html'});
+  $routeProvider.when('/plan-a-dinner', {templateUrl: 'partials/plan-a-dinner.html', controller: 'dinnerPlannerPro.MainController'});
+  $routeProvider.when('/overview', {templateUrl: 'partials/overview.html', controller: 'dinnerPlannerPro.MainController'});
+  $routeProvider.when('/preparation', {templateUrl: 'partials/preparation.html', controller: 'dinnerPlannerPro.MainController'});
+  $routeProvider.when('/dish-detail', {templateUrl: 'partials/dish-detail.html'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }]);
+
+// add layout stuff here 
+$(document).on("ready", function() {
+  $("#controls li:first-child").addClass("active");
+
+  $("#controls li").on("click", function () {
+    $("#controls li").removeClass("active");
+    $(this).addClass("active");
+  });
+});
