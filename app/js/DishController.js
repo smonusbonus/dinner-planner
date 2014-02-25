@@ -10,26 +10,9 @@ dinnerAppModule.controller('dinnerPlannerPro.DishController', function($scope, $
 	$scope.currentDishId = 1;
 
 	$scope.numberOfGuests = DinnerModel.getNumberOfGuests();
-
-	//
-	// Event Listener	
-	//
-	var showDishEventListener = $rootScope.$on('renderDishController', 
-		function(event, dishId) { 
-			$scope.showDish( dishId );
-			console.log('triggered');
-		}
-	);
-
-
-	$scope.showDish = function (dishId) {
-
-		$scope.currentDishId = dishId;
-
-		$scope.updateDisplay();
-
-		//$("#DishControllerView").modal();
-	};
+	
+	$scope.currentDish = DinnerModel.getDish( DinnerModel.getDetailViewId() );
+	$scope.priceOfCurrentDish = DinnerModel.getPriceOfDish( $scope.currentDishId );
 
 	$scope.confirmDish = function() {
 		DinnerModel.addDishToMenu( $scope.currentDishId );
@@ -37,13 +20,6 @@ dinnerAppModule.controller('dinnerPlannerPro.DishController', function($scope, $
 		$rootScope.$emit('dishModelChanged');
 		
 		$("#DishControllerView").modal("hide");
-	};
-
-	$scope.updateDisplay = function () {
-		$scope.numberOfGuests = DinnerModel.getNumberOfGuests();
-		
-		$scope.currentDish = DinnerModel.getDish( $scope.currentDishId );
-		$scope.priceOfCurrentDish = DinnerModel.getPriceOfDish( $scope.currentDishId );
 	};
 
 });

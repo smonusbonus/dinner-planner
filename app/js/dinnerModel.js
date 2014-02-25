@@ -261,7 +261,17 @@ dinnerAppModule.service("DinnerModel", function() {
 	var numberOfGuests = 3; //set default number of guests
 	//menu['starter'] = 1; //set a starter to the menu, to use for testing
 
+	var detailViewId = 1;
+
 	return {
+		getDetailViewId : function() {
+			return detailViewId;
+		},
+		
+		setDetailViewId : function(dishId) {
+			detailViewId = dishId;
+		},
+		
 		setNumberOfGuests : function(num) {
 			if(num>0) {
 				numberOfGuests = num;

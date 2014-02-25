@@ -69,9 +69,7 @@ dinnerAppModule.controller("dinnerPlannerPro.MainController", function($scope, $
 	};
 
 	$scope.showDishDetail = function (dish) {
-		$rootScope.$emit('renderDishController', dish.id);
-		$rootScope.currentDish = dish.id;
-
+		DinnerModel.setDetailViewId( dish.id );
 		$location.path('/dish-detail');
 	};
 
