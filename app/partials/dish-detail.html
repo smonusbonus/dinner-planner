@@ -8,9 +8,15 @@
     <img src="img/{{ currentDish.image }}" />
 
     <p>{{ currentDish.description }}</p>
+
+    <p>
+      <a class="btn btn-default" href="#/plan-a-dinner">
+        <span class="glyphicon glyphicon-chevron-left"></span> Back to select dish
+      </a>
+    </p>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-6 ingredients-list">
     <h3>Ingredients for {{ numberOfGuests }} people</h3>
     
     <table class="table">
@@ -28,8 +34,10 @@
       <button type="button" class="btn btn-default" ng-click="confirmDish()">
         <span class="glyphicon glyphicon-ok"></span> Confirm dish
       </button>
-      <span class="pull-right">SEK {{priceOfCurrentDish}}</span>
+      <span class="pull-right"><strong>SEK {{priceOfCurrentDish}}</strong></span>
     </div>
+
+
   </div>
 </div>
  

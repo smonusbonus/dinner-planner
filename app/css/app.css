@@ -154,3 +154,13 @@ a:active, a:visited, a:focus {
 .preparation-view .row {
 	margin-bottom: 20px;
 }
+
+.ingredients-list {
+  background-color: #e8e8e8;
+  padding-bottom: 20px;
+}
+
+.ingredients-list .total {
+  border-top: 2px solid #222;
+  padding: 10px 0 0 0;
+}
