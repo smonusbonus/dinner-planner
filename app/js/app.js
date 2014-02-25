@@ -15,7 +15,7 @@ dinnerAppModule.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/plan-a-dinner', {templateUrl: 'partials/plan-a-dinner.html', controller: 'dinnerPlannerPro.MainController'});
   $routeProvider.when('/overview', {templateUrl: 'partials/overview.html', controller: 'dinnerPlannerPro.MainController'});
   $routeProvider.when('/preparation', {templateUrl: 'partials/preparation.html', controller: 'dinnerPlannerPro.MainController'});
-  $routeProvider.when('/dish-detail', {templateUrl: 'partials/dish-detail.html'});
+  $routeProvider.when('/dish-detail', {templateUrl: 'partials/dish-detail.html', controller: 'dinnerPlannerPro.DishController'});
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
