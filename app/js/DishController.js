@@ -7,15 +7,13 @@
 // to the model.
 dinnerAppModule.controller('dinnerPlannerPro.DishController', function($scope, $rootScope, DinnerModel) {
 
-	$scope.currentDishId = 1;
-
 	$scope.numberOfGuests = DinnerModel.getNumberOfGuests();
 	
 	$scope.currentDish = DinnerModel.getDish( DinnerModel.getDetailViewId() );
-	$scope.priceOfCurrentDish = DinnerModel.getPriceOfDish( $scope.currentDishId );
+	$scope.priceOfCurrentDish = DinnerModel.getPriceOfDish( DinnerModel.getDetailViewId() );
 
 	$scope.confirmDish = function() {
-		DinnerModel.addDishToMenu( $scope.currentDishId );
+		DinnerModel.addDishToMenu( DinnerModel.getDetailViewId() );
 
 		$rootScope.$emit('dishModelChanged');
 		
